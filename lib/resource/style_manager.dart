@@ -8,10 +8,9 @@ class FontStyles{
 
   static TextStyle getRegularStyle({
     double fontSize=FontSize.s14,
-    required Color color,
+    Color? color,
   }){
     return TextStyle(
-      fontFamily: FontConstants.fontFamily,
       fontSize: fontSize,
       fontWeight: FontWeightManager.regular,
       color: color,
@@ -22,24 +21,11 @@ class FontStyles{
 
   static TextStyle getMediumStyle({
     double fontSize=FontSize.s14,
-    required Color color,
+    Color? color,
   }){
     return TextStyle(
-      fontFamily: FontConstants.fontFamily,
       fontSize: fontSize,
       fontWeight: FontWeightManager.medium,
-      color: color,
-    );
-  }
-
-// light style
-
-  static TextStyle getLightStyle(
-      {double fontSize = FontSize.s12, required Color color}) {
-    return TextStyle(
-      fontFamily: FontConstants.fontFamily,
-      fontSize: fontSize,
-      fontWeight: FontWeightManager.light,
       color: color,
     );
   }
@@ -47,9 +33,8 @@ class FontStyles{
 // bold style
 
   static TextStyle getBoldStyle(
-      {double fontSize = FontSize.s12, required Color color}) {
+      {double fontSize = FontSize.s16, Color? color}) {
     return TextStyle(
-      fontFamily: FontConstants.fontFamily,
       fontSize: fontSize,
       fontWeight: FontWeightManager.bold,
       color: color,
@@ -59,9 +44,8 @@ class FontStyles{
 // semiBold style
 
   static TextStyle getSemiBoldStyle(
-      {double fontSize = FontSize.s18, required Color color}) {
+      {double fontSize = FontSize.s18, Color? color}) {
     return TextStyle(
-      fontFamily: FontConstants.fontFamily,
       fontSize: fontSize,
       fontWeight: FontWeightManager.semiBold,
       color: color,
