@@ -12,7 +12,6 @@ class HomeView extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: SvgPicture.asset(Assets.images.logo),
         actions: [
           IconButton(onPressed: (){}, icon: const FaIcon(FontAwesomeIcons.magnifyingGlass))

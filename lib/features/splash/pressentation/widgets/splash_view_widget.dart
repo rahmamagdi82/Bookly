@@ -4,8 +4,9 @@ import 'package:bookly_app_test/resource/constants.dart';
 import 'package:bookly_app_test/resource/values_Manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/router.dart';
 import '../../../home/pressentation/view/home_view.dart';
 
 class SplashViewWidget extends StatefulWidget {
@@ -58,7 +59,8 @@ class _SplashViewWidgetState extends State<SplashViewWidget>
 
   void navigationTo(){
     Future.delayed(const Duration(seconds: 3),(){
-      Get.to(()=>const HomeView(),transition: Transition.fade,duration: AppConstants.transitionDuration);
+      GoRouter.of(context).go(AppRouter.homeViewPath);
+      // Get.to(()=>const HomeView(),transition: Transition.fade,duration: AppConstants.transitionDuration);
     });
   }
 
