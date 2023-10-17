@@ -11,12 +11,13 @@ class BookRating extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(FontAwesomeIcons.solidStar,color: ColorManager.yellow,),
+        Icon(FontAwesomeIcons.solidStar,color: ColorManager.yellow,size: AppSize.s14,),
         const SizedBox(width: AppSize.s6,),
         Text('4.8',style: FontStyles.getMediumStyle().copyWith(fontSize: FontSize.s16),),
         const SizedBox(width: AppSize.s6,),
-        Text('(1234)',style: FontStyles.getRegularStyle().copyWith(color: ColorManager.gray),)
+        Text('(1234)',style: FontStyles.getRegularStyle().copyWith(color: ColorManager.whiteWithOpacity50),)
       ],
     );
   }

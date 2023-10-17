@@ -60,7 +60,6 @@ class _SplashViewWidgetState extends State<SplashViewWidget>
   void navigationTo(){
     Future.delayed(const Duration(seconds: 3),(){
       GoRouter.of(context).go(AppRouter.homeViewPath);
-      // Get.to(()=>const HomeView(),transition: Transition.fade,duration: AppConstants.transitionDuration);
     });
   }
 

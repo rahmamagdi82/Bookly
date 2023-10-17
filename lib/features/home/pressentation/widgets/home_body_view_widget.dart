@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../resource/style_manager.dart';
 import '../../../../resource/values_Manager.dart';
 import 'best_seller_list_view.dart';
-import 'featured_list_view_item.dart';
+import 'books_list_view.dart';
 
 class HomeBodyViewWidget extends StatelessWidget{
   const HomeBodyViewWidget({super.key});
@@ -18,7 +18,7 @@ class HomeBodyViewWidget extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const FeaturedListViewItem(),
+                  const BooksListView(),
                   const SizedBox(height: AppSize.s50,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
