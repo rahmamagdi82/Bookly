@@ -1,4 +1,4 @@
-import 'package:bookly_app_test/resource/values_Manager.dart';
+import 'package:bookly_app_test/core/utils/values_Manager.dart';
 import 'package:flutter/material.dart';
 
 class BooksListViewItem extends StatelessWidget{

@@ -1,11 +1,12 @@
-import 'package:bookly_app_test/core/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../resource/color_manager.dart';
-import '../../../../resource/font_manager.dart';
-import '../../../../resource/style_manager.dart';
-import '../../../../resource/values_Manager.dart';
+import '../../../../core/utils/color_manager.dart';
+import '../../../../core/utils/router_manager.dart';
+import '../../../../resource/constants.dart';
+import '../../../../core/utils/font_manager.dart';
+import '../../../../core/utils/style_manager.dart';
+import '../../../../core/utils/values_Manager.dart';
 import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget{
@@ -47,7 +48,7 @@ class BestSellerListViewItem extends StatelessWidget{
                         'Harry Potter and the Goblet of Fire',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
-                        style: FontStyles.getRegularStyle().copyWith(fontFamily: FontConstants.fontFamily,fontSize: FontSize.s20,height: 1.1),
+                        style: FontStyles.getRegularStyle().copyWith(fontFamily: AppConstants.fontFamily,fontSize: FontSize.s20,height: 1.1),
                       ),
                     ),
                     const SizedBox(height: AppSize.s4,),

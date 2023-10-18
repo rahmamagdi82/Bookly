@@ -1,8 +1,8 @@
-import 'package:bookly_app_test/resource/color_manager.dart';
+import 'package:bookly_app_test/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'core/utils/router.dart';
+import 'core/utils/router_manager.dart';
 
 
 void main() {

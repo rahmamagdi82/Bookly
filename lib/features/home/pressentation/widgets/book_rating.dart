@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../resource/color_manager.dart';
-import '../../../../resource/font_manager.dart';
-import '../../../../resource/style_manager.dart';
-import '../../../../resource/values_Manager.dart';
+import '../../../../core/utils/color_manager.dart';
+import '../../../../core/utils/font_manager.dart';
+import '../../../../core/utils/style_manager.dart';
+import '../../../../core/utils/values_Manager.dart';
 class BookRating extends StatelessWidget{
   const BookRating({super.key});
 

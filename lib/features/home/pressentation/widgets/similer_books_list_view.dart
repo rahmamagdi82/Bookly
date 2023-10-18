@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../resource/values_Manager.dart';
+import '../../../../core/utils/values_Manager.dart';
 import 'books_list_view_item.dart';
 
 class SimilarBooksListView extends StatelessWidget{

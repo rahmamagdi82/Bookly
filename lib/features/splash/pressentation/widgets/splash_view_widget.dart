@@ -1,13 +1,11 @@
 import 'package:bookly_app_test/features/splash/pressentation/widgets/sliding_text.dart';
 import 'package:bookly_app_test/gen/assets.gen.dart';
-import 'package:bookly_app_test/resource/constants.dart';
-import 'package:bookly_app_test/resource/values_Manager.dart';
+import 'package:bookly_app_test/core/utils/values_Manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/router.dart';
-import '../../../home/pressentation/view/home_view.dart';
+import '../../../../core/utils/router_manager.dart';
 
 class SplashViewWidget extends StatefulWidget {
   const SplashViewWidget({super.key});

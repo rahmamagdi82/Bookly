@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../resource/color_manager.dart';
-import '../../../../resource/font_manager.dart';
-import '../../../../resource/style_manager.dart';
-import '../../../../resource/values_Manager.dart';
+import '../../../../core/utils/color_manager.dart';
+import '../../../../resource/constants.dart';
+import '../../../../core/utils/font_manager.dart';
+import '../../../../core/utils/style_manager.dart';
+import '../../../../core/utils/values_Manager.dart';
 import 'book_actions.dart';
 import 'book_rating.dart';
 import 'books_list_view_item.dart';
@@ -27,7 +28,7 @@ class BookDetailsSection extends StatelessWidget{
           'The Jungle Book',
           style: FontStyles.getRegularStyle().copyWith(
             fontSize: FontSize.s30,
-            fontFamily: FontConstants.fontFamily,
+            fontFamily: AppConstants.fontFamily,
           ),
         ),
         Text(
