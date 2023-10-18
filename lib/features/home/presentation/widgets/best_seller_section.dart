@@ -5,7 +5,7 @@ import '../../../../core/utils/style_manager.dart';
 import '../../../../core/utils/values_Manager.dart';
 import 'best_seller_list_view.dart';
 
-class BestSellerSection extends StatelessWidget{
+class BestSellerSection extends StatelessWidget {
   const BestSellerSection({super.key});
 
   @override
@@ -13,9 +13,11 @@ class BestSellerSection extends StatelessWidget{
     return MultiSliver(children: [
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
-        child: Text('Best Seller',style: FontStyles.getSemiBoldStyle()),
+        child: Text('Best Seller', style: FontStyles.getSemiBoldStyle()),
       ),
-      const SizedBox(height: AppSize.s20,),
+      const SizedBox(
+        height: AppSize.s20,
+      ),
       const BestSellerListView()
     ]);
   }

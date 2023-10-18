@@ -1,4 +1,4 @@
-import 'package:bookly_app_test/features/home/pressentation/widgets/similar_books_section.dart';
+import 'package:bookly_app_test/features/home/presentation/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/values_Manager.dart';

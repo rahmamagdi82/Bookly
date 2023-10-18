@@ -1,4 +1,4 @@
-import 'package:bookly_app_test/features/splash/pressentation/widgets/sliding_text.dart';
+import 'package:bookly_app_test/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:bookly_app_test/gen/assets.gen.dart';
 import 'package:bookly_app_test/core/utils/values_Manager.dart';
 import 'package:flutter/material.dart';
