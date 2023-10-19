@@ -1,5 +1,7 @@
 import 'package:bookly_app_test/core/utils/api_services.dart';
+import 'package:bookly_app_test/core/utils/hive_services.dart';
 import 'package:bookly_app_test/features/home/data/models/BookModel.dart';
+import 'package:bookly_app_test/resource/constants.dart';
 
 import '../../domain/entities/book_entity.dart';
 
@@ -19,6 +21,9 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
   Future<List<BookEntity>> getBooks() async {
     final result = await apiServices.get(endPoint: getBooksEndPoint);
     List<BookEntity> books = getBooksList(result);
+
+    HiveServices.addAllData(books, AppConstants.getBooksBox);
+
     return books;
   }
 
@@ -26,6 +31,9 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
   Future<List<BookEntity>> getNewestBooks() async {
     final result = await apiServices.get(endPoint: getNewestBooksEndPoint);
     List<BookEntity> books = getBooksList(result);
+
+    HiveServices.addAllData(books, AppConstants.getNewestBooksBox);
+
     return books;
   }
 
