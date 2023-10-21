@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/resources/values_manager.dart';
@@ -16,8 +17,8 @@ class BooksListViewItem extends StatelessWidget{
           borderRadius: BorderRadius.circular(AppSize.s14),
           image: DecorationImage(
             fit: BoxFit.fill,
-              image: NetworkImage(image)
-          )
+              image: CachedNetworkImageProvider(image)
+          ),
         ),
       ),
     );
