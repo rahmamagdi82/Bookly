@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/resources/values_manager.dart';
 
 class BooksListViewItem extends StatelessWidget{
-  const BooksListViewItem({super.key});
+  const BooksListViewItem({super.key, required this.image});
+
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,9 @@ class BooksListViewItem extends StatelessWidget{
         decoration: BoxDecoration(
           color: Colors.deepOrange,
           borderRadius: BorderRadius.circular(AppSize.s14),
-          image: const DecorationImage(
+          image: DecorationImage(
             fit: BoxFit.fill,
-              image: NetworkImage('https://www.readriordan.com/wp-content/uploads/2022/02/Lightning-Thief-flat-cover.png')
+              image: NetworkImage(image)
           )
         ),
       ),

@@ -12,7 +12,7 @@ class SimilarBooksListView extends StatelessWidget{
       height: MediaQuery.of(context).size.height/7.25,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemBuilder: (context,index) => const BooksListViewItem(),
+          itemBuilder: (context,index) => const BooksListViewItem(image: '',),
           separatorBuilder: (context,index) => const SizedBox(width: AppSize.s10,),
           itemCount: 7
       ),

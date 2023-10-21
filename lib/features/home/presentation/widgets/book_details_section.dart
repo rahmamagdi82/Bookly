@@ -19,7 +19,7 @@ class BookDetailsSection extends StatelessWidget{
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.2),
-          child: const BooksListViewItem(),
+          child: BooksListViewItem(image: '',),
         ),
         const SizedBox(
           height: AppSize.s40,

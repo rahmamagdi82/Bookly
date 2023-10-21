@@ -6,9 +6,9 @@ abstract class GetBooksState {}
 class GetBooksInitial extends GetBooksState {}
 class GetBooksLoading extends GetBooksState {}
 class GetBooksSuccess extends GetBooksState {
-  final List<BookEntity> newestBooks;
+  final List<BookEntity> books;
 
-  GetBooksSuccess(this.newestBooks);
+  GetBooksSuccess(this.books);
 }
 class GetBooksFailure extends GetBooksState {
   final String message;
