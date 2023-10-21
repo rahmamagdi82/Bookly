@@ -1,10 +1,10 @@
 import 'package:bookly_app_test/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:bookly_app_test/gen/assets.gen.dart';
-import 'package:bookly_app_test/core/utils/values_Manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/resources/values_manager.dart';
 import '../../../../core/utils/router_manager.dart';
 
 class SplashViewWidget extends StatefulWidget {

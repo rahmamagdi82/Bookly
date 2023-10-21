@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/values_Manager.dart';
+import '../../../../core/utils/resources/values_manager.dart';
 import 'best_seller_section.dart';
 import 'books_list_view.dart';
 

@@ -1,4 +1,4 @@
-import 'package:bookly_app_test/core/utils/color_manager.dart';
+import 'package:bookly_app_test/core/utils/resources/color_manager.dart';
 import 'package:bookly_app_test/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app_test/resource/constants.dart';
 import 'package:flutter/material.dart';

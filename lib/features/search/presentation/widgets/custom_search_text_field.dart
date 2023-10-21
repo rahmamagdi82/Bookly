@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/utils/color_manager.dart';
-import '../../../../core/utils/values_Manager.dart';
+import '../../../../core/utils/resources/color_manager.dart';
+import '../../../../core/utils/resources/values_manager.dart';
 
 class CustomSearchTextField extends StatelessWidget{
   const CustomSearchTextField({super.key});

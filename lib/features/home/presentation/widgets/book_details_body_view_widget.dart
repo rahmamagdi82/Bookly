@@ -1,7 +1,7 @@
 import 'package:bookly_app_test/features/home/presentation/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/values_Manager.dart';
+import '../../../../core/utils/resources/values_manager.dart';
 import 'book_details_section.dart';
 
 

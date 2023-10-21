@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/color_manager.dart';
+import '../../../../core/utils/resources/color_manager.dart';
+import '../../../../core/utils/resources/values_manager.dart';
 import '../../../../core/utils/router_manager.dart';
 import '../../../../resource/constants.dart';
-import '../../../../core/utils/font_manager.dart';
-import '../../../../core/utils/style_manager.dart';
-import '../../../../core/utils/values_Manager.dart';
+import '../../../../core/utils/resources/font_manager.dart';
+import '../../../../core/utils/resources/style_manager.dart';
 import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget{
