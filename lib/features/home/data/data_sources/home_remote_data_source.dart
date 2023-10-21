@@ -6,7 +6,7 @@ import 'package:bookly_app_test/resource/constants.dart';
 import '../../domain/entities/book_entity.dart';
 
 abstract class HomeRemoteDataSource{
-  Future<List<BookEntity>> getBooks();
+  Future<List<BookEntity>> getBooks({int pageNumber = 0});
   Future<List<BookEntity>> getNewestBooks();
 }
 
@@ -14,12 +14,12 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
   final ApiServices apiServices;
   HomeRemoteDataSourceImp(this.apiServices);
 
-  final String getBooksEndPoint = 'volumes?Filtering=free-ebooks&q=programming';
+  String getBooksEndPoint({int pageNumber = 0}) => 'volumes?Filtering=free-ebooks&q=programming&startIndex=${pageNumber * 10}';
   final String getNewestBooksEndPoint = 'volumes?Filtering=free-ebooks&q=programming&Sorting=newest';
 
   @override
-  Future<List<BookEntity>> getBooks() async {
-    final result = await apiServices.get(endPoint: getBooksEndPoint);
+  Future<List<BookEntity>> getBooks({int pageNumber = 0}) async {
+    final result = await apiServices.get(endPoint: getBooksEndPoint(pageNumber: pageNumber));
     List<BookEntity> books = getBooksList(result);
 
     HiveServices.addAllData<BookEntity>(books, AppConstants.getBooksBox);

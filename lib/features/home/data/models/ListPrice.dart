@@ -7,7 +7,7 @@ class ListPrice {
       this.currencyCode,});
 
   ListPrice.fromJson(dynamic json) {
-    amountInMicros = json['amountInMicros'];
+    amountInMicros = json['amount'];
     currencyCode = json['currencyCode'];
   }
   num? amountInMicros;
@@ -15,7 +15,7 @@ class ListPrice {
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['amountInMicros'] = amountInMicros;
+    map['amount'] = amountInMicros;
     map['currencyCode'] = currencyCode;
     return map;
   }

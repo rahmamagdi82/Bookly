@@ -24,7 +24,9 @@ class SaleInfo {
     country = json['country'];
     saleability = json['saleability'];
     isEbook = json['isEbook'];
-    listPrice = json['listPrice'];
+    listPrice = json['listPrice'] != null?
+    ListPrice.fromJson(json['listPrice'])
+    :null;
     retailPrice = json['retailPrice'] != null
         ? RetailPrice.fromJson(json['retailPrice'])
         : null;
