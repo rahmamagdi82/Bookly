@@ -13,7 +13,6 @@ class BooksListViewItem extends StatelessWidget{
       aspectRatio: 2/3,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.deepOrange,
           borderRadius: BorderRadius.circular(AppSize.s14),
           image: DecorationImage(
             fit: BoxFit.fill,

@@ -22,7 +22,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
     final result = await apiServices.get(endPoint: getBooksEndPoint);
     List<BookEntity> books = getBooksList(result);
 
-    HiveServices.addAllData(books, AppConstants.getBooksBox);
+    HiveServices.addAllData<BookEntity>(books, AppConstants.getBooksBox);
 
     return books;
   }
@@ -32,7 +32,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
     final result = await apiServices.get(endPoint: getNewestBooksEndPoint);
     List<BookEntity> books = getBooksList(result);
 
-    HiveServices.addAllData(books, AppConstants.getNewestBooksBox);
+    HiveServices.addAllData<BookEntity>(books, AppConstants.getNewestBooksBox);
 
     return books;
   }

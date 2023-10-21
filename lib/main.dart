@@ -1,20 +1,26 @@
+import 'package:bookly_app_test/core/utils/dependancy_injection.dart';
 import 'package:bookly_app_test/core/utils/resources/color_manager.dart';
 import 'package:bookly_app_test/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app_test/features/home/presentation/controllers/get_books_controller/get_books_cubit.dart';
+import 'package:bookly_app_test/features/home/presentation/controllers/get_newest_books_controller/get_newest_books_cubit.dart';
 import 'package:bookly_app_test/resource/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'core/utils/bloc_observe.dart';
 import 'core/utils/router_manager.dart';
 
-
 Future<void> main() async {
+  Bloc.observer = MyBlocObserver();
+  await initAppModule();
   await Hive.initFlutter();
-  runApp(const MyApp());
-  
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(AppConstants.getBooksBox);
-  await Hive.openBox(AppConstants.getNewestBooksBox);
+  await Hive.openBox<BookEntity>(AppConstants.getBooksBox);
+  await Hive.openBox<BookEntity>(AppConstants.getNewestBooksBox);
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,13 +28,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: ColorManager.primary,
-          appBarTheme: const AppBarTheme().copyWith(backgroundColor: ColorManager.primary,elevation: 0),
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) =>getItInstance<GetBooksCubit>()..getBooks()),
+        BlocProvider(
+            create: (context) => getItInstance<GetNewestBooksCubit>()..getNewestBooks()),
+      ],
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+            scaffoldBackgroundColor: ColorManager.primary,
+            appBarTheme: const AppBarTheme()
+                .copyWith(backgroundColor: ColorManager.primary, elevation: 0),
+            textTheme:
+                GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
       ),
     );
   }
