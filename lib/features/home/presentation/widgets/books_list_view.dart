@@ -20,6 +20,8 @@ class _BooksListViewState extends State<BooksListView> {
   late ScrollController _scrollController;
   int index = 1;
 
+  bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -42,9 +44,13 @@ class _BooksListViewState extends State<BooksListView> {
     );
   }
 
-  void _scrollListener() {
+  Future<void> _scrollListener() async {
     if(_scrollController.position.pixels >= 0.7 * _scrollController.position.maxScrollExtent){
-      BlocProvider.of<GetBooksCubit>(context).getBooks(pageNumber: index++);
+      if(!isLoading){
+        isLoading = true;
+        await BlocProvider.of<GetBooksCubit>(context).getBooks(pageNumber: index++);
+        isLoading = false;
+      }
     }
   }
 
