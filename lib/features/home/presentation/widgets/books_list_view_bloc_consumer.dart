@@ -4,9 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../controllers/get_books_controller/get_books_cubit.dart';
 import 'books_list_view.dart';
+import 'books_list_view_loading.dart';
 
-class BooksListViewBlocBuilder extends StatelessWidget {
-  const BooksListViewBlocBuilder({super.key});
+class BooksListViewBlocConsumer extends StatelessWidget {
+  const BooksListViewBlocConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class BooksListViewBlocBuilder extends StatelessWidget {
           return BooksListView(books: books,);
         }
         else {
-          return const Center(child: CircularProgressIndicator());
+          return const BooksListViewLoading();
         }
       },
     );

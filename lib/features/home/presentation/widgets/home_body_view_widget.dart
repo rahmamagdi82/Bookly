@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/resources/values_manager.dart';
 import 'best_seller_section.dart';
-import 'books_list_view_bloc_builder.dart';
+import 'books_list_view_bloc_consumer.dart';
 
 class HomeBodyViewWidget extends StatelessWidget {
   const HomeBodyViewWidget({super.key});
@@ -13,7 +13,7 @@ class HomeBodyViewWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: AppPadding.p16),
       child: CustomScrollView(slivers: [
         SliverToBoxAdapter(
-          child: BooksListViewBlocBuilder(),
+          child: BooksListViewBlocConsumer(),
         ),
         SliverToBoxAdapter(
             child: SizedBox(
