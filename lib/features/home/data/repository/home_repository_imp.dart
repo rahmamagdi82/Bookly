@@ -15,27 +15,20 @@ class HomeRepositoryImp extends HomeRepository {
 
   @override
   Future<Either<Failure, List<BookEntity>>> getBooks({int pageNumber = 0}) async {
-    List<BookEntity> result;
-    result = homeLocalDataSource.getBooks(pageNumber: pageNumber);
-    if (result.isNotEmpty) {
+    try {
+      List<BookEntity> result;
+      result = homeLocalDataSource.getBooks(pageNumber: pageNumber);
+      if (result.isNotEmpty) {
+        return right(result);
+      }
+      result = await homeRemoteDataSource.getBooks(pageNumber: pageNumber);
       return right(result);
+    } catch (e) {
+      if(e is DioException){
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(message: e.toString(), ));
     }
-    result = await homeRemoteDataSource.getBooks(pageNumber: pageNumber);
-    return right(result);
-    // try {
-    //   List<BookEntity> result;
-    //   result = homeLocalDataSource.getBooks(pageNumber: pageNumber);
-    //   if (result.isNotEmpty) {
-    //     return right(result);
-    //   }
-    //   result = await homeRemoteDataSource.getBooks(pageNumber: pageNumber);
-    //   return right(result);
-    // } catch (e) {
-    //   if(e is DioException){
-    //     return Left(ServerFailure.fromDioError(e));
-    //   }
-    //   return Left(ServerFailure(message: e.toString(), ));
-    // }
   }
 
   @override

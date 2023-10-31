@@ -11,6 +11,7 @@ abstract class AppRouter {
   static const searchPath = '/search';
 
   static final router = GoRouter(
+    debugLogDiagnostics: true,
     routes: [
       GoRoute(
         path: '/',
