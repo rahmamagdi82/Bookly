@@ -2,6 +2,7 @@ import 'package:bookly_app_test/core/errors/failure.dart';
 import 'package:bookly_app_test/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:bookly_app_test/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:bookly_app_test/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app_test/features/home/domain/entities/list_entity.dart';
 import 'package:bookly_app_test/features/home/domain/repository/home_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
@@ -32,14 +33,14 @@ class HomeRepositoryImp extends HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> getNewestBooks() async {
+  Future<Either<Failure, List<ListEntity>>> getBestSellerBooks() async {
     try{
-      List<BookEntity> result;
-      result = homeLocalDataSource.getNewestBooks();
-      if(result.isNotEmpty){
-        return right(result);
-      }
-      result = await homeRemoteDataSource.getNewestBooks();
+      List<ListEntity> result;
+      // result = homeLocalDataSource.getNewestBooks();
+      // if(result.isNotEmpty){
+      //   return right(result);
+      // }
+      result = await homeRemoteDataSource.getBestSellerBooks();
       return right(result);
     } catch (e) {
       if(e is DioException){

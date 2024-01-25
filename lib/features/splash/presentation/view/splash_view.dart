@@ -1,6 +1,6 @@
+import 'package:bookly_app_test/features/splash/presentation/view/widgets/splash_view_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/splash_view_widget.dart';
 
 class SplashView extends StatelessWidget{
   const SplashView({super.key});

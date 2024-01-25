@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/data/models/book_details_model.dart';
 import '../../features/home/presentation/view/book_details_view.dart';
 import '../../features/home/presentation/view/home_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
@@ -23,7 +24,7 @@ abstract class AppRouter {
       ),
       GoRoute(
           path: bookDetailsPath,
-          builder: (context, state) => const BookDetailsView()
+          builder: (context, state) => BookDetailsView(bookDetailsModel: state.extra as BookDetailsModel,),
       ),
       GoRoute(
           path: searchPath,
