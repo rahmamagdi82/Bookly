@@ -1,24 +1,24 @@
 import 'package:bookly_app_test/core/utils/api_services.dart';
-import 'package:bookly_app_test/features/home/data/models/best_seller_books_of_list_model.dart';
-
-import '../../domain/entities/book_entity.dart';
+import '../models/overview_list_model.dart';
 
 abstract class HomeRemoteDataSource{
-  Future<List<BookEntity>> getBooks({int pageNumber = 0});
-  Future<List<BestSellerBooksOfListModel>> getBestSellerBooks();
+  Future<List<OverviewListModel>> getBooks();
+  Future<List<OverviewListModel>> getBestSellerBooks();
 }
 
 class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
   final ApiServices apiServices;
   HomeRemoteDataSourceImp(this.apiServices);
 
-  String getBooksEndPoint({int pageNumber = 0}) => 'volumes?Filtering=free-ebooks&q=programming&startIndex=${pageNumber * 10}';
+  final String getOverViewBooksEndPoint = '/full-overview.json';
   final String getBestSellerBooksEndPoint = '/overview.json';
 
+  // final String getBestSellerBooksEndPoint = '/current/Childrens Middle Grade Hardcover.json';
+
   @override
-  Future<List<BookEntity>> getBooks({int pageNumber = 0}) async {
-    // final result = await apiServices.get(endPoint: getBooksEndPoint(pageNumber: pageNumber));
-     List<BookEntity> books = [];
+  Future<List<OverviewListModel>> getBooks() async {
+    final result = await apiServices.get(endPoint: getOverViewBooksEndPoint);
+     List<OverviewListModel> books = getBooksList(result);
     // getBooksList(result);
     //
     // // HiveServices.addAllData<BookEntity>(books, AppConstants.getBooksBox);
@@ -27,9 +27,9 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
   }
 
   @override
-  Future<List<BestSellerBooksOfListModel>> getBestSellerBooks() async {
+  Future<List<OverviewListModel>> getBestSellerBooks() async {
     final result = await apiServices.get(endPoint: getBestSellerBooksEndPoint);
-    List<BestSellerBooksOfListModel> books = getBooksList(result);
+    List<OverviewListModel> books = getBooksList(result);
 
     // HiveServices.addAllData<BookEntity>(books, AppConstants.getNewestBooksBox);
 
@@ -37,14 +37,26 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource{
   }
 
 
-  List<BestSellerBooksOfListModel> getBooksList(Map<String,dynamic> json){
-    List<BestSellerBooksOfListModel> books = [];
+  List<OverviewListModel> getBooksList(Map<String,dynamic> json){
+    List<OverviewListModel> books = [];
 
     for(var bookMap in json['results']['lists']){
 
-      books.add(BestSellerBooksOfListModel.fromJson(bookMap));
+      books.add(OverviewListModel.fromJson(bookMap));
     }
 
     return books;
   }
+
+
+  // List<BestSellerBookModel> getBestSellerBooksList(Map<String,dynamic> json){
+  //   List<BestSellerBookModel> books = [];
+  //
+  //   for(var bookMap in json['results']['books']){
+  //
+  //     books.add(BestSellerBookModel.fromJson(bookMap));
+  //   }
+  //
+  //   return books;
+  // }
 }

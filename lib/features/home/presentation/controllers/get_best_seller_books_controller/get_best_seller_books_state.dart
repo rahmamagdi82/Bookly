@@ -7,8 +7,8 @@ abstract class GetBestSellerBooksState {}
 class GetBestSellerBooksInitial extends GetBestSellerBooksState {}
 class GetBestSellerBooksLoading extends GetBestSellerBooksState {}
 class GetBestSellerBooksSuccess extends GetBestSellerBooksState {
-  final List<ListEntity> bestSellerBooks;
-  GetBestSellerBooksSuccess(this.bestSellerBooks);
+  final List<OverviewListEntity> lists;
+  GetBestSellerBooksSuccess(this.lists);
 }
 class GetBestSellerBooksFailure extends GetBestSellerBooksState {
   final String message;

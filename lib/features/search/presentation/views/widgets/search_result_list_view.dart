@@ -19,7 +19,7 @@ class SearchResultListView extends StatelessWidget{
       const SizedBox(
         height: AppSize.s20,
       ),
-      const BestSellerListView(items: [],)
+      const BestSellerListView(lists: [],)
     ]);
   }
 }

@@ -12,9 +12,9 @@ class HomeBodyViewWidget extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(vertical: AppPadding.p16),
       child: CustomScrollView(slivers: [
-        // SliverToBoxAdapter(
-        //   child: BooksListViewBlocConsumer(),
-        // ),
+        SliverToBoxAdapter(
+          child: BooksListViewBlocConsumer(),
+        ),
         SliverToBoxAdapter(
             child: SizedBox(
           height: AppSize.s50,

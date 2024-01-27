@@ -9,7 +9,7 @@ import '../../../../../core/utils/resources/style_manager.dart';
 import '../../../../../core/utils/resources/values_manager.dart';
 import '../../../../../core/utils/router_manager.dart';
 import '../../../../../resource/constants.dart';
-import 'book_rating.dart';
+import 'custom_cached_network_image.dart';
 
 class BestSellerListViewItem extends StatelessWidget{
   const BestSellerListViewItem({super.key, required this.bookDetailsModel});
@@ -24,20 +24,17 @@ class BestSellerListViewItem extends StatelessWidget{
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
         child: SizedBox(
-          height: AppSize.s105,
+          height: AppSize.s115,
           child: Row(
             children: [
               AspectRatio(
                 aspectRatio: 2/3,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.deepOrange,
                       borderRadius: BorderRadius.circular(AppSize.s14),
-                      image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: NetworkImage(bookDetailsModel.book.image!)
-                      )
                   ),
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child:  CustomCachedNetworkImage(image: bookDetailsModel.book.image,),
                 ),
               ),
               const SizedBox(width: AppSize.s30,),
@@ -56,20 +53,13 @@ class BestSellerListViewItem extends StatelessWidget{
                     ),
                     const SizedBox(height: AppSize.s4,),
                     Text(
-                      bookDetailsModel.book.authorName!,
+                      bookDetailsModel.book.authorName,
                       style: FontStyles.getMediumStyle().copyWith(color: ColorManager.gray),
                     ),
                     const SizedBox(height: AppSize.s3,),
-                    Row(
-                      children: [
-                        //TODO: price
-                        // Text(
-                        //   '${item.price}',
-                        //   style: FontStyles.getBoldStyle().copyWith(fontSize: FontSize.s20),
-                        // ),
-                        const Spacer(),
-                        const BookRating()
-                      ],
+                    Text(
+                      bookDetailsModel.listName,
+                      style: FontStyles.getRegularStyle().copyWith(color: ColorManager.whiteWithOpacity50),
                     )
                   ],
                 ),

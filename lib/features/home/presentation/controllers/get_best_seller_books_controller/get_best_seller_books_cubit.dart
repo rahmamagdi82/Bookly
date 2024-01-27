@@ -1,8 +1,7 @@
-import 'package:bookly_app_test/features/home/domain/entities/book_entity.dart';
-import 'package:bookly_app_test/features/home/domain/entities/list_entity.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../domain/entities/overview_list_entity.dart';
 import '../../../domain/use_cases/get_best_seller_books_use_case.dart';
 
 part 'get_best_seller_books_state.dart';

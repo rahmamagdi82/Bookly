@@ -18,7 +18,7 @@ class BookDetailsView extends StatelessWidget{
           context.pop();
         }, icon: const Icon(Icons.close),),
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart_outlined))
+          // IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart_outlined))
         ],
       ),
       body: BookDetailsBodyViewWidget(bookDetailsModel: bookDetailsModel,),

@@ -1,11 +1,17 @@
-import 'package:bookly_app_test/features/home/domain/entities/book_entity.dart';
-import 'package:bookly_app_test/features/home/domain/entities/list_entity.dart';
-
 /// YApi QuickType插件生成，具体参考文档:https://plugins.jetbrains.com/plugin/18847-yapi-quicktype/documentation
 
+import 'dart:convert';
 
-class BestSellerBooksOfListModel extends ListEntity {
-    BestSellerBooksOfListModel({
+import 'package:bookly_app_test/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app_test/features/home/domain/entities/buy_link_entity.dart';
+import 'package:bookly_app_test/features/home/domain/entities/overview_list_entity.dart';
+
+OverviewListModel overViewListModelFromJson(String str) => OverviewListModel.fromJson(json.decode(str));
+
+String overViewListModelToJson(OverviewListModel data) => json.encode(data.toJson());
+
+class OverviewListModel extends OverviewListEntity{
+    OverviewListModel({
         required this.books,
         required this.listId,
         required this.listName,
@@ -14,14 +20,14 @@ class BestSellerBooksOfListModel extends ListEntity {
         required this.updated,
     }) : super(listName: listName, books: books);
 
-  List<Book> books;
+    List<Book> books;
     int listId;
     String listName;
     String listNameEncoded;
     String displayName;
     String updated;
 
-    factory BestSellerBooksOfListModel.fromJson(Map<dynamic, dynamic> json) => BestSellerBooksOfListModel(
+    factory OverviewListModel.fromJson(Map<dynamic, dynamic> json) => OverviewListModel(
         books: List<Book>.from(json["books"].map((x) => Book.fromJson(x))),
         listId: json["list_id"],
         listName: json["list_name"],
@@ -29,7 +35,15 @@ class BestSellerBooksOfListModel extends ListEntity {
         displayName: json["display_name"],
         updated: json["updated"],
     );
-    
+
+    Map<dynamic, dynamic> toJson() => {
+        "books": List<dynamic>.from(books.map((x) => x.toJson())),
+        "list_id": listId,
+        "list_name": listName,
+        "list_name_encoded": listNameEncoded,
+        "display_name": displayName,
+        "updated": updated,
+    };
 }
 
 class Book extends BookEntity{
@@ -59,7 +73,7 @@ class Book extends BookEntity{
         required this.updatedDate,
         required this.rankLastWeek,
         required this.firstChapterLink,
-    }) : super(image: bookImage, title: title, authorName: author, rank: rank);
+    }) : super(image: bookImage, title: title, authorName: author, rank: rank,buyLinks: buyLinks);
 
     String contributorNote;
     String description;
@@ -114,13 +128,41 @@ class Book extends BookEntity{
         rankLastWeek: json["rank_last_week"],
         firstChapterLink: json["first_chapter_link"],
     );
+
+    Map<dynamic, dynamic> toJson() => {
+        "contributor_note": contributorNote,
+        "description": description,
+        "primary_isbn10": primaryIsbn10,
+        "primary_isbn13": primaryIsbn13,
+        "title": title,
+        "article_chapter_link": articleChapterLink,
+        "weeks_on_list": weeksOnList,
+        "book_image_width": bookImageWidth,
+        "contributor": contributor,
+        "amazon_product_url": amazonProductUrl,
+        "price": price,
+        "book_uri": bookUri,
+        "rank": rank,
+        "age_group": ageGroup,
+        "author": author,
+        "buy_links": List<dynamic>.from(buyLinks.map((x) => x.toJson())),
+        "sunday_review_link": sundayReviewLink,
+        "book_review_link": bookReviewLink,
+        "book_image_height": bookImageHeight,
+        "book_image": bookImage,
+        "publisher": publisher,
+        "created_date": createdDate.toIso8601String(),
+        "updated_date": updatedDate.toIso8601String(),
+        "rank_last_week": rankLastWeek,
+        "first_chapter_link": firstChapterLink,
+    };
 }
 
-class BuyLink {
+class BuyLink extends BuyLinkEntity{
     BuyLink({
         required this.name,
         required this.url,
-    });
+    }) : super(name: name, url: url);
 
     String name;
     String url;
@@ -129,4 +171,9 @@ class BuyLink {
         name: json["name"],
         url: json["url"],
     );
+
+    Map<dynamic, dynamic> toJson() => {
+        "name": name,
+        "url": url,
+    };
 }
